@@ -1,0 +1,319 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-size의 기본 사이즈는 16pt
+    근데 10pt 밑으로는 안 줄어듦 */
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* reset */
+li {
+    /* 블릿 문자 삭제 */
+    list-style: none;
+}
+
+a {
+    /* a태그가 가진 색과 밑줄을 삭제함. */
+    color: #333;
+    text-decoration: none;
+}
+
+/* warp */
+
+#wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* header */
+/* #header {} */
+
+#header h1 {
+    float: left;
+}
+
+#header .Nav {
+    float: right;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* #header .Nav ul {} */
+
+#header .Nav ul li {
+    position: relative;
+    float: left;
+    width: 120px;
+    text-align: center;
+    /* border: 1px solid red;
+    보더만 주면 보더 선인 1px까지 총 122가 넓이가 되는데
+    box-sizing: border-box;
+    를 넣으면 보더가 넓이 안에 들어감. */
+
+
+}
+
+#header .Nav ul li a {
+
+    background-color: #ccc;
+    display: block;
+    padding: 20px 15px;
+    transition: 0.3s;
+}
+
+#header .Nav ul li a:hover {
+    background-color: #ddd;
+}
+
+#header .Nav ul li .subMenu {
+    display: none;
+    /* <-> display: block;
+    none이랑 block은 애니메이션이 안 걸림
+    opacity는 애니메이션 됨 */
+    position: absolute;
+    left: 0;
+    top: 60px;
+    z-index: 10;
+}
+
+/* banner */
+#banner {
+    height: 378px;
+    overflow: hidden;
+}
+
+#banner .slideList {
+    position: relative;
+}
+
+#banner .slideList .slideImg {
+    position: relative;
+}
+
+#banner .slideList .slideImg h2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+
+}
+
+#banner .slideList .slideImg img {
+    width: 100%;
+    /* img태그 특징 = 인라인요소 
+    --> 예측하지 못하는 공간을 가지고있기 때문
+    해결방법
+    1)  display: block;
+    2) vertical-align: top; */
+    display: block;
+}
+
+/* content1 */
+#content1 {
+    margin-top: 15px;
+}
+
+#content1 .notice {
+    position: relative;
+    float: left;
+    width: 49%;
+    height: 218px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+#content1 .notice ul {
+    float: left;
+}
+
+#content1 .notice ul li {
+    float: left;
+    margin-right: 10px;
+
+}
+
+#content1 .notice ul li a {
+    font-size: 20px;
+    color: #999;
+    font-weight: bold;
+    /* font-weight=폰트 두께 */
+}
+
+#content1 .notice ul li.active a {
+    color: #000;
+}
+
+#content1 .notice ul li ul {
+    position: absolute;
+    left: 30px;
+    top: 70ox;
+}
+
+#content1 .notice ul li ul li {
+    width: 95%;
+}
+
+#content1 .notice ul li ul li a {
+    font-size: 15px;
+    float: left;
+    width: 68%;
+    /* 말 줄임말(더보기) */
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /* //말 줄임말(더보기) */
+    font-weight: normal;
+    /* 폰트 두께 초기화 */
+}
+
+#content1 .notice ul li ul li span {
+    float: right;
+}
+
+#content1 .ad {
+    background-color: #ccc;
+    float: right;
+    width: 49%;
+    height: 218px;
+}
+
+#content1 .ad a {}
+
+#content1 .ad a img {
+    width: 100%;
+}
+
+#content2 {
+    margin-top: 15px;
+}
+
+#content2 h2 {
+    margin-bottom: 10px;
+}
+
+#content2 ul {}
+
+#content2 ul li {
+    float: left;
+    margin-right: 1%;
+    width: 24.25%;
+}
+
+#content2 ul li:last-child {
+    margin-right: 0;
+}
+
+#content2 ul li div {
+    overflow: hidden;
+}
+
+#content2 ul li div img {
+    width: 100%;
+    transition: 0.3s;
+}
+
+#content2 ul li div:hover img {
+    /* transform:scale(1);-->100% */
+    /* transform:scale(1.2);-->120% */
+    transform: scale(1.2);
+}
+
+#content2 ul li span {}
+
+
+/* Pop-up */
+.layer-bg {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* width: 100%;height: 100%; */
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8)
+}
+
+#footer {
+    border-top: 1px solid #ccc;
+    padding: 30px 0;
+    margin-top: 30px;
+}
+
+#footer address {
+    /* adress태그는 태생이 이텔릭체임
+    기본체로 바꾸려면 (font-style:normal;)라 쳐야 함. */
+    font-style: normal;
+}
+
+#footer address ul {
+    width: 697px;
+}
+
+#footer address ul li {
+    /* display 
+    1) display: none;
+    2) display: block;
+    3) display: inline; --> 공간을 인식 못 함. padding, margin의 상하가 적용이 안 됨.
+    4) dispaly: inline-block --> 인라인 요소인데 블록요소처럼 공간을 인식함.*/
+    display: inline;
+    position: relative;
+    padding: 0 15px 0 10px;
+
+}
+
+#footer address ul li::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 3px;
+    /* 밑에가 바를 준거임 */
+    width: 1px;
+    height: 13px;
+    background-color: #666;
+}
+
+#footer address ul li.left {
+    padding-left: 0;
+}
+
+#footer address p {
+    padding-top: 12px;
+    /* text-transform: uppercase;-->대문자 변형 태그 */
+    text-transform: uppercase;
+}
+
+.layer-bg .layer {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+
+}
+
+.layer-bg .layer h2 {
+    font-size: 35px;
+}
+
+.layer-bg .layer .close {
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
